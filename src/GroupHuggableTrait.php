@@ -19,7 +19,7 @@ trait GroupHuggableTrait
     public function hug(Huggable $h): void
     {
         $id = spl_object_hash($h);
-        if (isset($this->currentlyHuggingMap[$id])) {
+        if ($this->currentlyHuggingMap[$id] ?? false) {
             return; // Already hugging
         }
 
